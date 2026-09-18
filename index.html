@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="KeyForge is a privacy-first password generator that creates strong passwords locally in your browser."
+  />
+  <meta name="theme-color" content="#0b1020" />
+  <title>KeyForge — Secure Password Generator</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="shell">
+    <section class="hero" aria-labelledby="page-title">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" role="img">
+            <path d="M7 10V8a5 5 0 0 1 10 0v2" />
+            <rect x="5" y="10" width="14" height="10" rx="3" />
+            <path d="M12 14v2" />
+          </svg>
+        </div>
+        <span>KeyForge</span>
+      </div>
+
+      <p class="eyebrow">PRIVATE • FAST • LOCAL</p>
+      <h1 id="page-title">Create stronger passwords in seconds.</h1>
+      <p class="subtitle">
+        Generate customizable passwords with secure browser randomness.
+        Everything happens on your device.
+      </p>
+    </section>
+
+    <section class="generator-card" aria-label="Password generator">
+      <div class="password-panel">
+        <div class="password-copy-row">
+          <label class="sr-only" for="passwordOutput">Generated password</label>
+          <input
+            id="passwordOutput"
+            class="password-output"
+            type="text"
+            readonly
+            autocomplete="off"
+            spellcheck="false"
+            aria-describedby="copyStatus"
+          />
+          <button id="copyButton" class="icon-button" type="button" aria-label="Copy password">
+            <svg class="copy-icon" viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="9" y="9" width="10" height="10" rx="2"></rect>
+              <path d="M15 9V7a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"></path>
+            </svg>
+          </button>
+        </div>
+
+        <div class="strength-row">
+          <div class="strength-copy">
+            <span>Password strength</span>
+            <strong id="strengthLabel">Strong</strong>
+          </div>
+          <div class="strength-track" aria-hidden="true">
+            <span id="strengthBar"></span>
+          </div>
+          <p id="entropyText" class="entropy-text"></p>
+          <p id="copyStatus" class="status-message" aria-live="polite"></p>
+        </div>
+      </div>
+
+      <div class="settings">
+        <div class="setting-header">
+          <div>
+            <p class="section-kicker">SETTINGS</p>
+            <h2>Customize your password</h2>
+          </div>
+          <span class="length-badge"><span id="lengthValue">16</span> chars</span>
+        </div>
+
+        <div class="slider-wrap">
+          <label for="lengthSlider">Password length</label>
+          <input
+            id="lengthSlider"
+            type="range"
+            min="8"
+            max="64"
+            step="1"
+            value="16"
+            aria-valuemin="8"
+            aria-valuemax="64"
+            aria-valuenow="16"
+          />
+          <div class="slider-scale" aria-hidden="true">
+            <span>8</span>
+            <span>64</span>
+          </div>
+        </div>
+
+        <div class="options-grid">
+          <label class="option-card">
+            <span>
+              <strong>Uppercase</strong>
+              <small>A–Z</small>
+            </span>
+            <input id="uppercase" type="checkbox" checked />
+            <span class="switch" aria-hidden="true"></span>
+          </label>
+
+          <label class="option-card">
+            <span>
+              <strong>Lowercase</strong>
+              <small>a–z</small>
+            </span>
+            <input id="lowercase" type="checkbox" checked />
+            <span class="switch" aria-hidden="true"></span>
+          </label>
+
+          <label class="option-card">
+            <span>
+              <strong>Numbers</strong>
+              <small>0–9</small>
+            </span>
+            <input id="numbers" type="checkbox" checked />
+            <span class="switch" aria-hidden="true"></span>
+          </label>
+
+          <label class="option-card">
+            <span>
+              <strong>Symbols</strong>
+              <small>! @ # $</small>
+            </span>
+            <input id="symbols" type="checkbox" checked />
+            <span class="switch" aria-hidden="true"></span>
+          </label>
+        </div>
+
+        <label class="check-row" for="excludeAmbiguous">
+          <input id="excludeAmbiguous" type="checkbox" />
+          <span>
+            <strong>Exclude ambiguous characters</strong>
+            <small>Removes characters such as O, 0, I, l and 1.</small>
+          </span>
+        </label>
+
+        <p id="generatorError" class="error-message" role="alert" aria-live="polite"></p>
+
+        <button id="generateButton" class="generate-button" type="button">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M20 11a8 8 0 1 1-2.34-5.66L20 7"></path>
+            <path d="M20 3v4h-4"></path>
+          </svg>
+          Generate new password
+        </button>
+
+        <div class="privacy-note">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 3 4.5 6v5.4c0 4.5 3.1 8.6 7.5 9.6 4.4-1 7.5-5.1 7.5-9.6V6L12 3Z"></path>
+            <path d="m9.5 12 1.6 1.6 3.4-3.4"></path>
+          </svg>
+          <span>No password is saved or sent anywhere.</span>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      Built with HTML, CSS &amp; JavaScript • Secure randomness via Web Crypto API
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
