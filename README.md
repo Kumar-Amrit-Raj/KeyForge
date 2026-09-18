@@ -48,8 +48,14 @@ KeyForge/
 ├── index.html
 ├── styles.css
 ├── script.js
+├── favicon.svg
+├── .nojekyll
 └── README.md
 ```
+
+## Browser Support
+
+KeyForge is designed for modern browsers with support for the Web Crypto API and Clipboard API.
 
 ## Purpose
 
