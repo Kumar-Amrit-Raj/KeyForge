@@ -4,6 +4,10 @@ KeyForge is a privacy-first password generator built with HTML5, CSS3 and vanill
 
 It creates customizable passwords entirely in the browser and uses the Web Crypto API for secure random values instead of `Math.random()`.
 
+## Live Demo
+
+[View KeyForge Live](https://kumar-amrit-raj.github.io/KeyForge/)
+
 ## Features
 
 - Adjustable password length from 8 to 64 characters
